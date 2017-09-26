@@ -10,78 +10,77 @@ body{
 .nameC{   
     position: absolute; 
     font-size: 12px;
-    left:130px;
-    top:728px;
+    left:8.9%;
+    bottom:1.8%;
 }
 
 .nameA{   
     position: absolute; 
     font-size: 12px;
-    left:90px;
-    top:454px;
+    left:6.1%;
+    bottom: 38%;
 }
 
 .nameB{   
     position: absolute; 
     font-size: 12px;
-    right:110px;
-    top:728px;
+    right:7.5%;
+    bottom:1.8%;
 }
 
 .nameD{
     position: absolute; 
     font-size: 12px;
-    right:736px;
-    top:728px;
+    right:48%;
+    bottom:1.8%;
 }
 
-        path {
-              fill: none;
-              stroke: #000;
-              stroke-width: 0.8px;
-              stroke-linejoin: round;
-              stroke-linecap: round;
-            }
+path{
+    fill: none;
+    stroke: #000;
+    stroke-width: 0.8px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    }
+
 .YOUTUBE{
     position: relative;
-    padding-left: 24%;
-    margin-top: 2%;
+    margin-left: 11.5%;
+    margin-top: 1.5%
 }
 
-        .axis {
-            font-size: : 10px;
-            stroke: #000;
-            shape-rendering: crispEdges;
-            stroke-width: 1px;
-        }
-
-    
-        .axis path, line {
-              fill: black;
-              stroke: #000;
-              stroke-width: 1px;
-            }
-
-        .chart1 text{
-            font-size: 11px;
-        }
-
-        .chart2 text{
-            font-size: 11px;
-        }
+.axis {
+    font-size: : 10px;
+    stroke: #000;
+    shape-rendering: crispEdges;
+    stroke-width: 1px;
+}
 
 
-        .legend {
+.axis path, line {
+      fill: black;
+      stroke: #000;
+      stroke-width: 1px;
+    }
 
-            padding: 5px;
-            font: 10px sans-serif;
-            background: yellow;
-            box-shadow: 2px 2px 1px #888;
-        }
-        .legendMap {
-            background: linear-gradient(to right, #FCA107, #7F3121);
-            box-shadow: 2px 2px 1px #888;
-        }
+.chart1 text{
+    font-size: 11px;
+}
+
+.chart2 text{
+    font-size: 11px;
+}
+
+.legend {
+    padding: 5px;
+    font: 10px sans-serif;
+    background: yellow;
+    box-shadow: 2px 2px 1px #888;
+}
+.legendMap {
+    background: linear-gradient(to right, #FCA107, #7F3121);
+    box-shadow: 2px 2px 1px #888;
+}
 
 h1,h2,h3,h4,h5,h6{
 	margin:0;	
