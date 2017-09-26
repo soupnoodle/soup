@@ -59,9 +59,9 @@
                 widthChart = 400- margin.left - margin.right,
                 heightChart =  700 - margin.top - margin.bottom;
 
-            var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).attr("class", "map").attr("transform", "translate(420 ,16)") ;
+            var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).attr("class", "map").attr("transform", "translate(410 ,4)") ;
             var svg2 = d3.select(".map").append("svg").attr("width", width).attr("height", height).attr("class", "map2").attr("transform", "translate(0 ,0)");
-            var svg3 = d3.select("body").append("svg").attr("width",widthChart+40).attr("height", height).attr("class","chartAoD").attr("transform", "translate(440,9)") ;
+            var svg3 = d3.select("body").append("svg").attr("width",widthChart+40).attr("height", height+10).attr("class","chartAoD").attr("transform", "translate(430,9)") ;
 
 //投影
             var center = d3.geo.centroid(json)
@@ -241,7 +241,7 @@
             .style("fill", "#001433")
             .text("Death Numbers of Each Day")
             .attr("transform",function(d){
-            return "translate(164,638) rotate(0)";})
+            return "translate(164,644) rotate(0)";})
 
 //缩放
             var xZoom,yZoom,sZoom;
@@ -323,7 +323,7 @@
             ];    
 
             var x = d3.scale.ordinal().rangeRoundBands([0,heightChart-30], .1);            
-            var y = d3.scale.linear().range([0, widthChart- margin.left - margin.right - 10]);
+            var y = d3.scale.linear().range([0, widthChart- margin.left - margin.right - 40]);
 
             var xAxis = d3.svg.axis().scale(x).orient("left");
             var yAxis = d3.svg.axis().scale(y).orient("top").ticks(10);
@@ -438,7 +438,7 @@
                         .append("foreignObject")
                         .attr("class", "selectAllDays")
                         .attr("x", widthChart - 182)
-                        .attr("y",598)
+                        .attr("y",604)
                         .append("xhtml:body")
                         .html(function(d){ return "<form><input type=button class=button2 value= "+"Reset"+" /></form>"})
                         .on("click",updateDeaths);
@@ -603,7 +603,7 @@
 }); */
     </script>
 
-    <div id="main" style="width: 320px;height:305px; position: absolute; left: 3.5%; top: 444px"></div>
+    <div id="main" style="width: 320px;height:305px; position: absolute; left: 2%; top: 442px"></div>
     <script type="text/javascript">
         var myChart = echarts.init(document.getElementById('main'));
         myChart.setOption({
@@ -641,7 +641,7 @@
 });
 </script>
 
-<div id="main2" style="width: 368px;height:400px; position: absolute; top:78px; left: 1.5%"></div>
+<div id="main2" style="width: 368px;height:400px; position: absolute; top:77px; left: 0.5%"></div>
     <script type="text/javascript">
         var myChart = echarts.init(document.getElementById('main2'));
         myChart.setOption({
