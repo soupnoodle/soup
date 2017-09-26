@@ -59,9 +59,9 @@
                 widthChart = 400- margin.left - margin.right,
                 heightChart =  700 - margin.top - margin.bottom;
 
-            var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).attr("class", "map").attr("transform", "translate(410 ,4)") ;
+            var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).attr("class", "map").attr("transform", "translate(404 ,4)") ;
             var svg2 = d3.select(".map").append("svg").attr("width", width).attr("height", height).attr("class", "map2").attr("transform", "translate(0 ,0)");
-            var svg3 = d3.select("body").append("svg").attr("width",widthChart).attr("height", height+10).attr("class","chartAoD").attr("transform", "translate(430,9)") ;
+            var svg3 = d3.select("body").append("svg").attr("width",widthChart).attr("height", height+10).attr("class","chartAoD").attr("transform", "translate(420,9)") ;
 
 //投影
             var center = d3.geo.centroid(json)
