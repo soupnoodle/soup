@@ -6,19 +6,47 @@ body{
     background-color: #fafafa
  }
 
-.PIE{position: absolute;
-left:40px;
-top:490px;
 
+.nameC{   
+    position: absolute; 
+    font-size: 12px;
+    left:130px;
+    top:728px;
+}
+
+.nameA{   
+    position: absolute; 
+    font-size: 12px;
+    left:90px;
+    top:454px;
+}
+
+.nameB{   
+    position: absolute; 
+    font-size: 12px;
+    right:110px;
+    top:728px;
+}
+
+.nameD{
+    position: absolute; 
+    font-size: 12px;
+    right:736px;
+    top:728px;
 }
 
         path {
               fill: none;
               stroke: #000;
-              stroke-width: .1px;
+              stroke-width: 0.8px;
               stroke-linejoin: round;
               stroke-linecap: round;
             }
+.YOUTUBE{
+    position: relative;
+    padding-left: 24%;
+    margin-top: 2%;
+}
 
         .axis {
             font-size: : 10px;
@@ -89,8 +117,8 @@ a:focus{
 }
 
 
-.button2{width: 100px}
-.button1{width: 140px}
+.button2{width: 120px}
+.button1{width: 120px}
 /*-- banner --*/
 /*--header -top--*/
 /*-- nav --*/
