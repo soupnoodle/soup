@@ -54,12 +54,12 @@
             d3.json("https://raw.githubusercontent.com/iufh/h517/master/death.json",function(error, deaths) {
             if (error) throw error;  
 //创建SVG            
-            var width = 650, height = 620;
+            var width = 650, height = 640;
             var margin = {"top": 30, "right": 20, "bottom": 20, "left": 20};
                 widthChart = 400- margin.left - margin.right,
                 heightChart =  700 - margin.top - margin.bottom;
 
-            var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).attr("class", "map").attr("transform", "translate(430 ,20)") ;
+            var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).attr("class", "map").attr("transform", "translate(430 ,16)") ;
             var svg2 = d3.select(".map").append("svg").attr("width", width).attr("height", height).attr("class", "map2").attr("transform", "translate(0 ,0)");
             var svg3 = d3.select("body").append("svg").attr("width",widthChart+40).attr("height", height).attr("class","chartAoD").attr("transform", "translate(450,16)") ;
 
@@ -71,9 +71,9 @@
             var path = d3.geo.path().projection(projection);
             var bounds  = path.bounds(json);
             var hscale  = scale*width  / (bounds[1][0] - bounds[0][0])  ;
-            var vscale  = scale*(height - 60) / (bounds[1][1] - bounds[0][1]) ;
+            var vscale  = scale*(height - 70) / (bounds[1][1] - bounds[0][1]) ;
             var scale   = (hscale < vscale) ? hscale : vscale;
-            var offset  = [width - (bounds[0][0] + bounds[1][0])/2, height - (bounds[0][1] + bounds[1][1] + 150)/2];
+            var offset  = [width - (bounds[0][0] + bounds[1][0])/2, height - (bounds[0][1] + bounds[1][1] + 160)/2];
                 projection = d3.geo.mercator().center(center).scale(scale).translate(offset);
                 path = path.projection(projection);   
 //主要SVG
@@ -117,7 +117,7 @@
             .style("fill", "#001433")
             .text("MARSHALL ST")
             .attr("transform",function(d){
-            return "translate(278.5,260) rotate(66.5)";})
+            return "translate(275.5,260) rotate(66.5)";})
 
              var deanST = svg2.append("g")
             .attr("class","SVG")
@@ -127,7 +127,7 @@
             .style("fill", "#001433")
             .text("DEAN ST")
             .attr("transform",function(d){
-            return "translate(515.5,220) rotate(66.5)";})
+            return "translate(517,220) rotate(66.5)";})
 
             var wardourST = svg2.append("g")
             .attr("class","SVG")
@@ -147,17 +147,17 @@
             .style("fill", "#001433")
             .text("KING ST")
             .attr("transform",function(d){
-            return "translate(207.5,310) rotate(52)";})
+            return "translate(200.5,310) rotate(52)";})
 
-            var archerST = svg2.append("g")
+            var boardST = svg2.append("g")
             .attr("class","SVG")
             .append("text")
             .attr("font-size",5)
             .attr("font-weight",700)
             .style("fill", "#001433")
-            .text("ARCHER ST")
+            .text("BOARD ST")
             .attr("transform",function(d){
-            return "translate(464.5,415.5) rotate(-37)";})
+            return "translate(334.5,293) rotate(-26)";})
 
 //中空地图
               lineSvg.selectAll("path")
@@ -224,6 +224,25 @@
                     .style("stroke-width", "0.2")
                     .style("stroke", "04172c")
                     .text("Brewery");
+//title right
+             var maptitle = svg.append("g")
+            .attr("class","SVG")
+            .append("text")
+            .attr("font-size",12)
+            .style("fill", "#001433")
+            .text("John Snow's Cholera Map")
+            .attr("transform",function(d){
+            return "translate(250,638) rotate(0)";})
+
+             var maptitle = svg3.append("g")
+            .attr("class","SVG")
+            .append("text")
+            .attr("font-size",12)
+            .style("fill", "#001433")
+            .text("Death Numbers of Each Day")
+            .attr("transform",function(d){
+            return "translate(164,638) rotate(0)";})
+
 //缩放
             var xZoom,yZoom,sZoom;
             var zoom = d3.behavior.zoom().translate([0, 0]).scaleExtent([1, 10]).scale(1).on("zoom", zoomed);
@@ -243,7 +262,7 @@
                 .attr("class", "reset")
                 .attr("float","left")
                 .attr("x", width-390)
-                .attr("y", 590)
+                .attr("y", 598)
                 .append("xhtml:body")
                 .html(function(d){ return "<form><input type=button class=button1 value= "+"Reset"+" /></form>"})
                  .on("click",function(){
@@ -419,7 +438,7 @@
                         .append("foreignObject")
                         .attr("class", "selectAllDays")
                         .attr("x", widthChart - 182)
-                        .attr("y",590)
+                        .attr("y",598)
                         .append("xhtml:body")
                         .html(function(d){ return "<form><input type=button class=button2 value= "+"Reset"+" /></form>"})
                         .on("click",updateDeaths);
@@ -583,17 +602,22 @@
     ]
 }); */
     </script>
-    <div>
-        <p class="nameC">Death Percentage in Ages</p>
-        <p class="nameA">Death Numbers in Different Age and Gender </p>
-        <p class="nameB">Death Numbers of Each Day</p> 
-        <p class="nameD">John Snow's Map</p> 
-    </div>
 
-    <div id="main" style="width: 320px;height:300px; position: absolute; left: 50px; top:450px"></div>
+    <div id="main" style="width: 320px;height:305px; position: absolute; left: 3.5%; top: 444px"></div>
     <script type="text/javascript">
         var myChart = echarts.init(document.getElementById('main'));
         myChart.setOption({
+        title:{
+        text: 'Death Percentage in Age Groups',
+        textStyle:{
+        fontSize: 12,
+        fontWeight:'normal',
+        fontFamily:'sans-serif',
+        color: '#000'
+      },
+        x:'center',
+        y:'bottom'
+      },
         tooltip : {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -617,10 +641,21 @@
 });
 </script>
 
-<div id="main2" style="width: 368px;height:368px; position: absolute; top:11.5%; left: 1.5%"></div>
+<div id="main2" style="width: 368px;height:400px; position: absolute; top:78px; left: 1.5%"></div>
     <script type="text/javascript">
         var myChart = echarts.init(document.getElementById('main2'));
         myChart.setOption({
+        title:{
+        text: 'Death Numbers in Different Age and Gender',
+        textStyle:{
+        fontSize: 12,
+        fontWeight:'normal',
+        fontFamily:'sans-serif',
+        color: '#000'
+      },
+        x:'center',
+        y:'366'
+        },
         tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -628,15 +663,24 @@
         }
         },
         legend: {
+        itemWidth:12,
+        itemHeight:12,
+             textStyle:{
+        fontSize: 12,
+        fontWeight:'normal',
+        fontFamily:'sans-serif',
+        color: '#000'
+      },
         orient: 'horizontal', // 'vertical'
         x: 'center', 
-        y: '7%',
+        y: '8%',
+
         data: ['Male', 'Female']
         },
         grid: {
         left: '3%',
         right: '4%',
-        bottom: '3%',
+        bottom: '10%',
         containLabel: true
         },
         xAxis: {
@@ -655,7 +699,6 @@
             type: 'bar',
             cursor:'defalut',
             itemStyle:{
-
                 normal:{
                     color:'#347c94'
                 }
